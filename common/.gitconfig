@@ -1,0 +1,8 @@
+[user]
+	email = 123456789+fakegithubuser@users.noreply.github.com
+	name = fakename
+	signingkey = /path/to/ssh/sshkey.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
