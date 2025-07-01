@@ -1,0 +1,5 @@
+term=kitty
+location=center
+width=800
+prompt=I don't know what app you're looking for, but I will find it and I will launch it...
+allow-images=true
