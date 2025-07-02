@@ -1,0 +1,16 @@
+:root {
+--neon-red: #ff453a;
+--electric-orange: #ff9f0a;
+--cyber-green: #30d158;
+--electric-blue: #007aff;
+--steel-blue: #2c3e50;
+--deep-navy: #1a1a2e;
+--warm-beige: #f5f5dc;
+--urban-brown: #8b7355;
+}
+
+window {
+margin: auto;
+border: 10px solid #ff9f0a;
+background-color: #f5f5dc;
+}
