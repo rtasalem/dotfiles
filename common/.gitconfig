@@ -1,0 +1,15 @@
+[user]
+	email = 123456789+fakegithubuser@users.noreply.github.com
+	name = fakename
+	signingkey = /path/to/ssh/sshkey.pub
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+# aliases are only needed for bash (zsh = git plugin w/ oh-my-zsh)
+[alias]
+	co = checkout
+	br = branch
+	st = status
+	a = add
+	p = push
