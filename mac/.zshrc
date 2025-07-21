@@ -6,6 +6,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# aliases
+alias obsidian="open -a obsidian"
+alias notion="open -a notion"
+alias browser="open -a vivaldi"
+alias canva="open -a canva"
+
 # path to Oh My ZSH installation
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -19,5 +25,5 @@ source $ZSH/oh-my-zsh.sh
 
 # Load fastfetch output on terminal startup
 if command -v fastfetch >/dev/null 2>&1; then
-  fastfetch
+  fastfetch -l windows
 fi
