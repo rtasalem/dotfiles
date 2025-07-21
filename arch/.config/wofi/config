@@ -1,7 +1,7 @@
 show=drun
 allow-images=true
 term=kitty
-prompt=I don't know what app you're looking for, but I will find it and I will launch it...
+prompt=Looking for something?
 location=center
 width=800
 lines=6
