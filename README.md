@@ -1,5 +1,6 @@
 # dotfiles
 
 ## Contents
-[Mac Dotfiles](./mac/README.md)  
-[Arch Dotfiles](./arch/README.md)
+[Arch](./arch/README.md)  
+[Common](./common/README.md)  
+[Mac](./mac/README.md)  

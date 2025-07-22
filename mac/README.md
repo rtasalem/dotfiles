@@ -1,6 +1,4 @@
-# Mac Dotfiles
-
-This directory contains the dotfiles I use for Mac.
-
+# Mac dotfiles
 ## Contents
+[Fastfetch](./.config/fastfetch/config.jsonc)  
 [zshrc (Zsh configuration)](./.zshrc)
