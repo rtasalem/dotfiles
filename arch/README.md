@@ -1,9 +1,6 @@
-# Arch Dotfiles
-
-This directory contains the dotfiles I use for Arch.
-
+# Arch dotfiles
 ## Contents
-[Hyprland](./.config/hypr/hyprland.conf)  
-[Fastfetch](./.config/fastfetch/config.jsonc)  
 [Bash](./.bashrc)  
+[Fastfetch](./.config/fastfetch/config.jsonc)  
+[Hyprland](./.config/hypr/hyprland.conf)  
 [Wofi](./.config/wofi) 
