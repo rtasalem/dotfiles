@@ -37,6 +37,7 @@ tooltip label {
     border: none;
     box-shadow: none;
     text-shadow: none;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 #workspaces button.active {
@@ -46,7 +47,7 @@ tooltip label {
 
 #workspaces button:hover {
     color: @white;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     box-shadow: none;
     text-shadow: none;
 }
