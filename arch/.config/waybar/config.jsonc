@@ -32,12 +32,14 @@
     },
 
     "network": {
-        "format-wifi": "󰤨 {signalStrength}%",
-        "format-ethernet": "󰈀 {ifname}",
-        "format-disconnected": "󰤭 Off",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}",
-        "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "Disconnected"
+        "format-wifi": "{icon}  {essid}",
+        "format-ethernet": "󰈁  {ifname}",
+        "format-disconnected": "󰤮  Offline",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "tooltip-format-wifi": "{essid}\n󰩟 {ipaddr}/{cidr}\n󱑽 {signalStrength}%\n󰇚 {bandwidthDownBytes} 󰕜 {bandwidthUpBytes}",
+        "tooltip-format-ethernet": "{ifname}\n󰩟 {ipaddr}/{cidr}",
+        "tooltip-format-disconnected": "No connection",
+        "interval": 5
     },
 
     "pulseaudio": {
@@ -60,11 +62,12 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰂄 {capacity}%",
+        "format": "{icon}  {capacity}%",
+        "format-charging": "󱐋 {capacity}%",
         "format-plugged": "󰚥 {capacity}%",
-        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "tooltip-format": "{timeTo}\n{power}W"
+        "format-full": "󰁹 Full",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format": "{timeTo}\n⚡ {power}W\n{cycles} cycles"
     },
 
     "tray": {

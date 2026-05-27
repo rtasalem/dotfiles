@@ -1,7 +1,7 @@
-@define-color bg rgba(10, 10, 10, 0.85);
-@define-color green-bright #00ff41;
-@define-color green-dim #008f11;
-@define-color green-ghost #005500;
+@define-color bg rgba(20, 20, 20, 0.80);
+@define-color white #e0e0e0;
+@define-color dim #777777;
+@define-color ghost #444444;
 @define-color black #0a0a0a;
 
 * {
@@ -12,44 +12,47 @@
 
 window#waybar {
     background: @bg;
-    border: 1px solid @green-dim;
+    border: 1px solid @ghost;
     border-radius: 14px;
-    color: @green-bright;
+    color: @white;
 }
 
 tooltip {
     background: @black;
-    border: 1px solid @green-dim;
+    border: 1px solid @ghost;
     border-radius: 4px;
-    color: @green-bright;
+    color: @white;
 }
 
 tooltip label {
-    color: @green-bright;
+    color: @white;
 }
 
 #workspaces button {
     padding: 0 8px;
     margin: 4px 3px;
     border-radius: 10px;
-    color: @green-dim;
+    color: @dim;
     background: transparent;
     border: none;
-    transition: all 0.2s ease;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #workspaces button.active {
     color: @black;
-    background: @green-bright;
-    text-shadow: 0 0 4px @green-bright;
+    background: @white;
 }
 
 #workspaces button:hover {
-    color: @green-bright;
+    color: @white;
+    background: transparent;
+    box-shadow: none;
+    text-shadow: none;
 }
 
 #workspaces button.empty {
-    color: @green-ghost;
+    color: @ghost;
 }
 
 #clock,
@@ -61,7 +64,7 @@ tooltip label {
     border-radius: 10px;
     background: transparent;
     border: none;
-    border-right: 1px solid @green-dim;
+    border-right: 1px solid @ghost;
 }
 
 #tray {
@@ -69,32 +72,29 @@ tooltip label {
 }
 
 #clock {
-    color: @green-bright;
+    color: @white;
 }
 
 #battery.charging,
 #battery.plugged {
-    color: @green-bright;
+    color: @white;
 }
 
 #battery.warning:not(.charging) {
     color: #ffaa00;
-    border-color: #ffaa00;
 }
 
 #battery.critical:not(.charging) {
-    color: #ff0040;
-    border-color: #ff0040;
+    color: #ff4455;
     animation: blink 1s linear infinite;
 }
 
 @keyframes blink {
     to {
-        color: @black;
+        color: @ghost;
     }
 }
 
 #network.disconnected {
-    color: @green-ghost;
-    border-color: @green-ghost;
+    color: @ghost;
 }
