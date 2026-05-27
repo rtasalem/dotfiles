@@ -1,193 +1,105 @@
+@define-color bg rgba(10, 10, 10, 0.85);
+@define-color green-bright #00ff41;
+@define-color green-dim #008f11;
+@define-color green-ghost #005500;
+@define-color black #0a0a0a;
 
 * {
-    border: none;
-    border-radius: 10px;
-    font-family: "JetBrainsMono Nerd Font";
-    font-weight: bold;
-    font-size: 12px;
+    font-family: "JetBrains Mono", "Source Code Pro", monospace;
+    font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+    background: @bg;
+    border: 1px solid @green-dim;
+    border-radius: 8px;
+    color: @green-bright;
 }
 
 tooltip {
-    background: #000000;
-    border-radius: 7px;
-    border-width: 2.5px;
-    border-style: solid;
-    border-color: #8aadf4;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    background: @black;
+    border: 1px solid @green-dim;
+    border-radius: 4px;
+    color: @green-bright;
 }
 
-
+tooltip label {
+    color: @green-bright;
+}
 
 #workspaces button {
-    color: #313244;
-    margin-right: 5px;
-    padding-right: 0px;
-    padding-left: 0px;
+    padding: 0 6px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    color: @green-dim;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-    color: #89b4fa;
+    color: @black;
+    background: @green-bright;
+    border-color: @green-bright;
+    text-shadow: 0 0 4px @green-bright;
 }
 
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 13px;
+#workspaces button:hover {
+    color: @green-bright;
+    border-color: @green-dim;
 }
-
-
-
-#workspaces button.persistent {
-    color: #f9e2af;
-}
-
 
 #workspaces button.empty {
-    color: #313244;
+    color: @green-ghost;
 }
 
-#workspaces button.active,
-#workspaces button.visible {
-    color: #89b4fa;
-    box-shadow: inset 0 -1px #1e1e2e;
-}
-
-#workspaces button.urgent {
-    color: #f38ba8;
-}
-#custom-weather,
-#language,
-#cpu,
-#window,
 #clock,
+#custom-nordvpn,
+#network,
 #pulseaudio,
-#pulseaudio.microphone,
-#workspaces,
-#tray,
-#memory,
-#disk,
+#backlight,
+#battery,
 #tray {
-    background: #1e1e2e;
-    opacity: 1.0;
-    padding: 1.5px 7px 1.5px 7px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 13px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-#workspaces {
-    background: #1e1e2e;
-    border-radius: 13px;
-    margin-left: 5px;
-    padding-right: 0px;
-}
-
-#window {
-    border-radius: 7px;
-    margin-left: 60px;
-    margin-right: 60px;
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid @green-dim;
 }
 
 #clock {
-    color: #a6e3a1;
-    border-radius: 0px 13px 13px 0px;
-    margin-right: 0px;
-    margin-left: 0px;
+    border-color: @green-bright;
 }
 
-#network {
-    color: #f9e2af;
-    border-radius: 7px 7px 7px 7px;
-    margin-right: 5px;
+#battery.charging,
+#battery.plugged {
+    color: @green-bright;
 }
 
-#custom-notifications {
-    color: #f9e2af;
-    border-radius: 7px 7px 7px 7px;
-    padding-left: 9px;
-    padding-right: 15px;
-    margin-left:  2px;
-    margin-right: 2px;
-
+#battery.warning:not(.charging) {
+    color: #ffaa00;
+    border-color: #ffaa00;
 }
 
-#custom-updates {
-    color: #89b4fa;
-    border-radius: 7px 7px 7px 7px;
-    border-left:  0px;
-    border-right: 0px;
-    margin-left:  2px;
-    margin-right: 2px;
+#battery.critical:not(.charging) {
+    color: #ff0040;
+    border-color: #ff0040;
+    animation: blink 1s linear infinite;
 }
 
-#custom-player {
- color: #cba6f7;
- border-radius: 7px 7px 7px 7px;
- padding-left: 4px;
- margin-left:  5px;
- margin-right: 5px;
+@keyframes blink {
+    to {
+        color: @black;
+    }
 }
 
-#memory {
-    color: #89b4fa;
-    border-radius: 0px 0px 0px 0px;
-    margin-left: 0px;
-    margin-right:0px;
+#network.disconnected {
+    color: @green-ghost;
+    border-color: @green-ghost;
 }
 
-#disk {
-    color: #f9e2af;
-    border-radius: 0px 13px 13px 0px;
-    margin-left: 0px;
-}
-
-
-#bluetooth {
-  color: #89b4fa;
-  border-radius: 0px 13px 13px 0px;
-  margin-left: 5px;
-  margin-right: 5px;
-} 
-
-#pulseaudio {
-  color: #89b4fa;
-  border-radius: 0px 0px 0px 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-radius: 0px 0px 0px 0px;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-#language {
-   border-radius: 13px 0px 0px 13px;
-   margin-right:0px;
-}
-
-#cpu {
-   border-radius: 13px 0px 0px 13px;
-   padding-left:10px;
-   margin-right:0px;
-   margin-left: 0px;
-}
-
-#custom-weather {
-   border-radius: 13px 13px 13px 13px;
-   margin-right: 0px
-   
+#pulseaudio.muted {
+    color: @green-ghost;
+    border-color: @green-ghost;
 }
