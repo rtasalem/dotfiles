@@ -11,11 +11,13 @@ PS1='[\u@\h \W]\$ '
 alias gst='git status'
 alias gcmsg='git commit -m'
 alias ga='git add'
+alias gl='git pull'
 alias gcl='git clone'
 alias gp='git push'
 alias gco='git checkout'
 alias gcb='git checkout -b'
 alias gb='git branch'
+alias vpn='nordvpn c'
 
 if command -v fastfetch >/dev/null 2>&1; then
 fastfetch
