@@ -36,6 +36,11 @@
   transition: background 0.15s ease, color 0.15s ease;
 }
 
+#entry:hover {
+  color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 #entry:selected {
   background-color: #e0e0e0;
 }
