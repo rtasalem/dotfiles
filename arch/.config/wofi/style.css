@@ -37,8 +37,11 @@
 }
 
 #entry:selected {
-  color: #0a0a0a;
   background-color: #e0e0e0;
+}
+
+#entry:selected #text {
+  color: #0a0a0a;
 }
 
 #text {
