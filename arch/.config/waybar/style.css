@@ -13,7 +13,7 @@
 window#waybar {
     background: @bg;
     border: 1px solid @green-dim;
-    border-radius: 8px;
+    border-radius: 14px;
     color: @green-bright;
 }
 
@@ -29,25 +29,23 @@ tooltip label {
 }
 
 #workspaces button {
-    padding: 0 6px;
-    margin: 4px 2px;
-    border-radius: 4px;
+    padding: 0 8px;
+    margin: 4px 3px;
+    border-radius: 10px;
     color: @green-dim;
     background: transparent;
-    border: 1px solid transparent;
+    border: none;
     transition: all 0.2s ease;
 }
 
 #workspaces button.active {
     color: @black;
     background: @green-bright;
-    border-color: @green-bright;
     text-shadow: 0 0 4px @green-bright;
 }
 
 #workspaces button:hover {
     color: @green-bright;
-    border-color: @green-dim;
 }
 
 #workspaces button.empty {
@@ -55,21 +53,23 @@ tooltip label {
 }
 
 #clock,
-#custom-nordvpn,
 #network,
-#pulseaudio,
-#backlight,
 #battery,
 #tray {
-    padding: 0 10px;
-    margin: 4px 2px;
-    border-radius: 4px;
+    padding: 0 14px;
+    margin: 4px 0;
+    border-radius: 10px;
     background: transparent;
-    border: 1px solid @green-dim;
+    border: none;
+    border-right: 1px solid @green-dim;
+}
+
+#tray {
+    border-right: none;
 }
 
 #clock {
-    border-color: @green-bright;
+    color: @green-bright;
 }
 
 #battery.charging,
@@ -95,11 +95,6 @@ tooltip label {
 }
 
 #network.disconnected {
-    color: @green-ghost;
-    border-color: @green-ghost;
-}
-
-#pulseaudio.muted {
     color: @green-ghost;
     border-color: @green-ghost;
 }

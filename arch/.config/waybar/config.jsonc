@@ -7,7 +7,7 @@
 
     "modules-left": ["clock"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["custom/nordvpn", "network", "pulseaudio", "backlight", "battery", "tray"],
+    "modules-right": ["network", "battery", "tray"],
 
     "clock": {
         "format": "{:%a %d %b  %H:%M}",
@@ -19,7 +19,10 @@
         "on-click": "activate",
         "sort-by-number": true,
         "active-only": false,
-        "all-outputs": true
+        "all-outputs": true,
+        "persistent-workspaces": {
+            "*": 10
+        }
     },
 
     "custom/nordvpn": {
