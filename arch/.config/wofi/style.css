@@ -1,20 +1,25 @@
 * {
-  color: #e5e9f0;
+  font-family: "JetBrains Mono", "Source Code Pro", monospace;
+  font-size: 13px;
+  color: #e0e0e0;
   background: transparent;
 }
 
 #window {
-  background: rgba(41, 46, 66, 0.5);
+  background: rgba(20, 20, 20, 0.80);
   margin: auto;
   padding: 10px;
-  border-radius: 15px;
-  border: 1px solid #e5e9f0;
+  border-radius: 14px;
+  border: 1px solid #444444;
 }
 
 #input {
-  padding: 3px;
-  margin-bottom: 5px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
   border-radius: 10px;
+  border: 1px solid #444444;
+  background: #0a0a0a;
+  color: #e0e0e0;
 }
 
 #outer-box {
@@ -26,12 +31,14 @@
 }
 
 #entry {
-  padding: 5px;
+  padding: 5px 8px;
   border-radius: 10px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 
 #entry:selected {
-  background-color: #2e3440;
+  color: #0a0a0a;
+  background-color: #e0e0e0;
 }
 
 #text {
