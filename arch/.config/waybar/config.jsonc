@@ -1,77 +1,184 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 3,
-    "margin-left": 6,
-    "margin-right": 6,
+    "margin-top": 12,
+    "margin-bottom": -8,
 
-    "modules-left": ["clock"],
-    "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["network", "battery", "tray"],
+    // ── Modules Layout ───────────────────────────────────────────────
+    "modules-left": [
+        "clock",
+        "custom/power",
+        "network",
+        "bluetooth",
+        "custom/microphone",
+        "custom/vpn"
+    ],
 
+    "modules-center": [
+        "custom/workspace-1",
+        "custom/workspace-2",
+        "custom/workspace-3",
+        "custom/workspace-4",
+        "custom/workspace-5",
+        "custom/workspace-6",
+        "custom/workspace-7",
+        "custom/workspace-8",
+        "custom/workspace-9",
+        "custom/workspace-10"
+    ],
+
+    "modules-right": [
+        "custom/battery",
+        "custom/volume",
+        "custom/brightness"
+    ],
+
+    // ── Clock ────────────────────────────────────────────────────────
     "clock": {
-        "format": "{:%a %d %b  %H:%M}",
-        "tooltip-format": "{:%Y-%m-%d %A %H:%M:%S}"
+        "tooltip-format": "{calendar}",
+        "format-alt": "  {:%a, %d %b %Y}",
+        "format": "[   {:%I:%M %p} ]"
     },
 
-    "hyprland/workspaces": {
-        "format": "{id}",
-        "on-click": "activate",
-        "sort-by-number": true,
-        "active-only": false,
-        "all-outputs": true,
-        "persistent-workspaces": {
-            "*": 10
-        }
-    },
-
-    "custom/nordvpn": {
-        "exec": "nordvpn status | grep -i 'status' | awk -F': ' '{print $2}' | sed 's/Connected/󰌾 VPN/;s/Disconnected/󰌿 VPN/'",
-        "interval": 30,
-        "tooltip-format": "NordVPN: {}"
-    },
-
+    // ── Network ──────────────────────────────────────────────────────
     "network": {
-        "format-wifi": "{icon}  {essid}",
-        "format-ethernet": "󰈁  {ifname}",
-        "format-disconnected": "󰤮  Offline",
-        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "tooltip-format-wifi": "{essid}\n󰩟 {ipaddr}/{cidr}\n󱑽 {signalStrength}%\n󰇚 {bandwidthDownBytes} 󰕜 {bandwidthUpBytes}",
-        "tooltip-format-ethernet": "{ifname}\n󰩟 {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "No connection",
+        "format-wifi": "{icon}",
+        "format-icons": ["[ 󰤯 ]", "[ 󰤟 ]", "[ 󰤢 ]", "[ 󰤥 ]", "[ 󰤨 ]"],
+        "format-ethernet": "[ 󰀂 ]",
+        "format-alt": "[ 󱛇 ]",
+        "format-disconnected": "[ 󰖪 ]",
+        "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click": "nm-connection-editor",
         "interval": 5
     },
 
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟 Mute",
+    // ── Bluetooth ────────────────────────────────────────────────────
+    "bluetooth": {
+        "format": "{icon}",
         "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
+            "enabled": "[  ]",
+            "disabled": "[ 󰂲 ]"
         },
+        "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+        "tooltip-format": "Bluetooth is {status}",
+        "interval": 5
+    },
+
+    // ── Microphone ───────────────────────────────────────────────────
+    "custom/microphone": {
+        "exec": "~/.config/waybar/scripts/mic.sh",
+        "interval": 1,
+        "tooltip": true,
+        "tooltip-format": "Mic Toggle",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+
+    // ── VPN ──────────────────────────────────────────────────────────
+    "custom/vpn": {
+        "exec": "~/.config/waybar/scripts/nordvpn-status.sh",
+        "interval": 5,
+        "on-click": "~/.config/waybar/scripts/nordvpn-toggle.sh",
+        "format": "{}",
+        "tooltip": true,
+        "tooltip-format": "NordVPN Status / Toggle"
+    },
+
+    // ── Power ────────────────────────────────────────────────────────
+    "custom/power": {
+        "format": "[ 󰤆 ]",
+        "tooltip": true,
+        "tooltip-format": "Power Menu",
+        "on-click": "~/.config/waybar/scripts/powermenu.sh"
+    },
+
+    // ── Battery ──────────────────────────────────────────────────────
+    "custom/battery": {
+        "exec": "~/.config/waybar/scripts/battery.sh",
+        "return-type": "json",
+        "interval": 10
+    },
+
+    // ── Volume ───────────────────────────────────────────────────────
+    "custom/volume": {
+        "exec": "~/.config/waybar/scripts/volume.sh",
+        "return-type": "json",
+        "interval": 1,
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "tooltip-format": "{desc}\n{volume}%"
+        "on-scroll-up": "wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
 
-    "backlight": {
-        "format": "󰃟 {percent}%",
-        "tooltip-format": "Brightness: {percent}%"
+    // ── Brightness ───────────────────────────────────────────────────
+    "custom/brightness": {
+        "exec": "~/.config/waybar/scripts/brightness.sh",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "~/.config/waybar/scripts/brightness-toggle.sh",
+        "on-scroll-up": "brightnessctl set +5%",
+        "on-scroll-down": "brightnessctl set 5%-"
     },
 
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-charging": "󱐋 {capacity}%",
-        "format-plugged": "󰚥 {capacity}%",
-        "format-full": "󰁹 Full",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
-        "tooltip-format": "{timeTo}\n⚡ {power}W\n{cycles} cycles"
+    // ── Workspaces ───────────────────────────────────────────────────
+    "custom/workspace-1": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-1.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 1",
+        "tooltip": false
     },
-
-    "tray": {
-        "icon-size": 14,
-        "spacing": 8
+    "custom/workspace-2": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-2.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 2",
+        "tooltip": false
+    },
+    "custom/workspace-3": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-3.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 3",
+        "tooltip": false
+    },
+    "custom/workspace-4": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-4.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 4",
+        "tooltip": false
+    },
+    "custom/workspace-5": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-5.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 5",
+        "tooltip": false
+    },
+    "custom/workspace-6": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-6.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 6",
+        "tooltip": false
+    },
+    "custom/workspace-7": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-7.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 7",
+        "tooltip": false
+    },
+    "custom/workspace-8": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-8.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 8",
+        "tooltip": false
+    },
+    "custom/workspace-9": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-9.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 9",
+        "tooltip": false
+    },
+    "custom/workspace-10": {
+        "exec": "~/.config/waybar/scripts/workspaces/workspace-10.sh",
+        "interval": 1,
+        "on-click": "hyprctl dispatch workspace 10",
+        "tooltip": false
     }
 }
