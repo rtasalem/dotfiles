@@ -1,6 +1,7 @@
 #!/bin/bash
 # ── nordvpn-status.sh ──────────────────────────────────────
 # Shows NordVPN connection status via NordVPN CLI.
+# Returns JSON so country appears in tooltip, not the bar.
 # Dependencies: nordvpn
 # ───────────────────────────────────────────────────────────
 
@@ -9,7 +10,7 @@ status=$(nordvpn status 2>/dev/null | grep -i "^Status" | awk -F': ' '{print $2}
 if [[ "$status" == "Connected" ]]; then
     country=$(nordvpn status 2>/dev/null | grep -i "^Country" | awk -F': ' '{print $2}' | xargs)
     [[ -z "$country" ]] && country="Unknown"
-    echo "<span foreground='#fab387'>[ 󰌾 VPN: $country ]</span>"
+    echo "{\"text\":\"<span foreground='#fab387'>[󰌾]</span>\",\"tooltip\":\"NordVPN: $country\"}"
 else
-    echo "<span foreground='#bf616a'>[ 󰌿 VPN: Off ]</span>"
+    echo "{\"text\":\"<span foreground='#bf616a'>[󰌿]</span>\",\"tooltip\":\"NordVPN: Disconnected\"}"
 fi

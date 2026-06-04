@@ -1,10 +1,8 @@
 #!/bin/bash
-# workspace-2.sh — highlight workspace 2 if active
-
 active=$(hyprctl activeworkspace -j | jq '.id')
 
 if [ "$active" -eq 2 ]; then
-  echo "[<span foreground='#fab387'>●</span>]"
+  echo "<span foreground='#fab387'>[2]</span>"
 else
-  echo "[ 2 ]"
+  echo "<span foreground='#56b6c2'>[2]</span>"
 fi
