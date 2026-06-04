@@ -5,7 +5,7 @@
 # ───────────────────────────────────────────────────────────
 
 if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q 'yes'; then
-    echo "{\"text\":\"<span foreground='#fab387'>[ 󰍭 ]</span>\",\"tooltip\":\"Mic: Muted\"}"
+    echo "{\"text\":\"[ 󰍭 ]\",\"tooltip\":\"Mic: Muted\",\"class\":\"muted\"}"
 else
-    echo "{\"text\":\"<span foreground='#56b6c2'>[ 󰍬 ]</span>\",\"tooltip\":\"Mic: Active\"}"
+    echo "{\"text\":\"[ 󰍬 ]\",\"tooltip\":\"Mic: Active\",\"class\":\"active\"}"
 fi

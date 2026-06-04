@@ -41,15 +41,24 @@ window#waybar {
 #network,
 #custom-vpn,
 #clock {
-    padding: 4px;
-    margin: 2px 2px;
-    background-color: #292d35;
-    border: 1px solid #61afef;
-    border-radius: 2px;
+    padding: 2px 4px;
+    margin: 2px 1px;
+    background-color: transparent;
+    border: none;
+    color: #9cdef2;
+}
+/* === Microphone ========================================================== */
+
+#custom-microphone.active {
+    color: #56b6c2;
+}
+
+#custom-microphone.muted {
+    color: #fab387;
 }
 
 
-/* === Clock =============================================================== */
+
 
 #clock {
     font-weight: bold;
@@ -61,8 +70,7 @@ window#waybar {
 /* === Network ============================================================= */
 
 #network.disconnected {
-    background-color: #e06c75;
-    color: #1e1e2e;
+    color: #e06c75;
 }
 
 
@@ -132,10 +140,8 @@ window#waybar {
 #custom-battery:hover,
 #custom-brightness:hover,
 #clock:hover {
-    background-color: #4c566a;
-    border: 1px solid #56b6c2;
-    color: #56b6c2;
-    transition: all 0.15s ease-in-out;
+    color: #fab387;
+    transition: color 0.15s ease-in-out;
 }
 
 
