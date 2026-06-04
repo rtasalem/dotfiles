@@ -35,9 +35,9 @@ else
     icon=${default_icons[$index]}
 fi
 
-# ASCII bar
-filled=$((capacity / 10))
-empty=$((10 - filled))
+# ASCII bar (5 blocks wide)
+filled=$((capacity / 20))
+empty=$((5 - filled))
 bar=$(printf '█%.0s' $(seq 1 $filled))
 pad=$(printf '░%.0s' $(seq 1 $empty))
 ascii_bar="[$bar$pad]"

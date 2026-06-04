@@ -1,8 +1,10 @@
 {
     "layer": "top",
     "position": "top",
-    "margin-top": 12,
-    "margin-bottom": -8,
+    "margin-top": 6,
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
 
     // ── Modules Layout ───────────────────────────────────────────────
     "modules-left": [
@@ -31,7 +33,7 @@
     // ── Clock ────────────────────────────────────────────────────────
     "clock": {
         "tooltip-format": "{:%a, %d %b %Y}\n{calendar}",
-        "format": "[{:%H:%M}]"
+        "format": "[ {:%H:%M}]"
     },
 
     // ── Network ──────────────────────────────────────────────────────

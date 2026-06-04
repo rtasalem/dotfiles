@@ -41,7 +41,7 @@ window#waybar {
 #network,
 #custom-vpn,
 #clock {
-    padding: 2px 6px;
+    padding: 4px;
     margin: 2px 2px;
     background-color: #292d35;
     border: 1px solid #61afef;

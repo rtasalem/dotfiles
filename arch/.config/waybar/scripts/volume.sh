@@ -12,16 +12,19 @@ is_muted=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED && echo true ||
 sink=$(wpctl status | awk '/Sinks:/,/Sources:/' | grep '\*' | cut -d'.' -f2- | sed 's/^\s*//; s/\[.*//')
 
 if [ "$is_muted" = true ]; then
-    icon=""
+    icon="󰝟"
     vol_int=0
-elif [ "$vol_int" -lt 50 ]; then
-    icon=""
+elif [ "$vol_int" -lt 34 ]; then
+    icon="󰕿"
+elif [ "$vol_int" -lt 67 ]; then
+    icon="󰖀"
 else
-    icon=""
+    icon="󰕾"
 fi
 
-filled=$((vol_int / 10))
-empty=$((10 - filled))
+# ASCII bar (5 blocks wide)
+filled=$((vol_int / 20))
+empty=$((5 - filled))
 bar=$(printf '█%.0s' $(seq 1 $filled))
 pad=$(printf '░%.0s' $(seq 1 $empty))
 ascii_bar="[$bar$pad]"
