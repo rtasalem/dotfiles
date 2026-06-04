@@ -36,17 +36,17 @@
     // ── Clock ────────────────────────────────────────────────────────
     "clock": {
         "tooltip-format": "{calendar}",
-        "format-alt": "  {:%a, %d %b %Y}",
-        "format": "[   {:%I:%M %p} ]"
+        "format-alt": " {:%a, %d %b %Y}",
+        "format": " {:%H:%M}"
     },
 
     // ── Network ──────────────────────────────────────────────────────
     "network": {
         "format-wifi": "{icon}",
-        "format-icons": ["[ 󰤯 ]", "[ 󰤟 ]", "[ 󰤢 ]", "[ 󰤥 ]", "[ 󰤨 ]"],
-        "format-ethernet": "[ 󰀂 ]",
-        "format-alt": "[ 󱛇 ]",
-        "format-disconnected": "[ 󰖪 ]",
+        "format-icons": ["[󰤯]", "[󰤟]", "[󰤢]", "[󰤥]", "[󰤨]"],
+        "format-ethernet": "[󰀂]",
+        "format-alt": "[󱛇]",
+        "format-disconnected": "[󰖪]",
         "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
@@ -58,8 +58,8 @@
     "bluetooth": {
         "format": "{icon}",
         "format-icons": {
-            "enabled": "[  ]",
-            "disabled": "[ 󰂲 ]"
+            "enabled": "[]",
+            "disabled": "[󰂲]"
         },
         "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
         "tooltip-format": "Bluetooth is {status}",
@@ -70,9 +70,10 @@
     "custom/microphone": {
         "exec": "~/.config/waybar/scripts/mic.sh",
         "interval": 1,
+        "signal": 8,
         "tooltip": true,
-        "tooltip-format": "Mic Toggle",
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+        "tooltip-format": "Click to toggle mic mute",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+8 waybar"
     },
 
     // ── VPN ──────────────────────────────────────────────────────────
@@ -87,7 +88,7 @@
 
     // ── Power ────────────────────────────────────────────────────────
     "custom/power": {
-        "format": "[ 󰤆 ]",
+        "format": "[󰤆]",
         "tooltip": true,
         "tooltip-format": "Power Menu",
         "on-click": "~/.config/waybar/scripts/powermenu.sh"
