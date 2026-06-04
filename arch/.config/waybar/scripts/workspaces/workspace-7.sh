@@ -1,10 +1,8 @@
 #!/bin/bash
-# workspace-7.sh — highlight workspace 7 if active
-
 active=$(hyprctl activeworkspace -j | jq '.id')
 
 if [ "$active" -eq 7 ]; then
-  echo "[<span foreground='#fab387'>●</span>]"
+  echo "<span foreground='#fab387'>[ 7 ]</span>"
 else
-  echo "[ 7 ]"
+  echo "<span foreground='#56b6c2'>[ 7 ]</span>"
 fi
