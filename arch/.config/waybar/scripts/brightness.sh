@@ -8,13 +8,12 @@ brightness=$(brightnessctl get)
 max_brightness=$(brightnessctl max)
 percent=$((brightness * 100 / max_brightness))
 
-# Build ASCII bar (6 blocks wide)
+# Build ASCII bar (6 blocks max, no trailing empty blocks)
 filled=$((percent * 6 / 100))
 [ $filled -gt 6 ] && filled=6
-empty=$((6 - filled))
+[ $filled -lt 0 ] && filled=0
 bar=$(printf '█%.0s' $(seq 1 $filled))
-pad=$(printf '░%.0s' $(seq 1 $empty))
-ascii_bar="[$bar$pad]"
+ascii_bar="$bar"
 
 icon="󰛨"
 

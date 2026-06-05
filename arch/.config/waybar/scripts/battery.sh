@@ -35,13 +35,12 @@ else
     icon=${default_icons[$index]}
 fi
 
-# ASCII bar (6 blocks wide)
+# ASCII bar (6 blocks max, no trailing empty blocks)
 filled=$((capacity * 6 / 100))
 [ $filled -gt 6 ] && filled=6
-empty=$((6 - filled))
+[ $filled -lt 0 ] && filled=0
 bar=$(printf '█%.0s' $(seq 1 $filled))
-pad=$(printf '░%.0s' $(seq 1 $empty))
-ascii_bar="[$bar$pad]"
+ascii_bar="$bar"
 
 # Color thresholds
 if [ "$capacity" -lt 20 ]; then
