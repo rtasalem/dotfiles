@@ -10,7 +10,7 @@ status=$(nordvpn status 2>/dev/null | grep -i "^Status" | awk -F': ' '{print $2}
 if [[ "$status" == "Connected" ]]; then
     country=$(nordvpn status 2>/dev/null | grep -i "^Country" | awk -F': ' '{print $2}' | xargs)
     [[ -z "$country" ]] && country="Unknown"
-    echo "{\"text\":\"[ <span foreground='#fab387' font='14'>󰌾</span> ]\",\"tooltip\":\"NordVPN: $country\"}"
+    echo "{\"text\":\"[ 󰌾 ]\",\"tooltip\":\"NordVPN: $country\"}"
 else
-    echo "{\"text\":\"[ <span foreground='#bf616a' font='14'>󰌿</span> ]\",\"tooltip\":\"NordVPN: Disconnected\"}"
+    echo "{\"text\":\"[ 󰌿 ]\",\"tooltip\":\"NordVPN: Disconnected\"}"
 fi

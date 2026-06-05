@@ -1,7 +1,6 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 28,
     "margin-top": 6,
     "margin-left": 6,
     "margin-right": 6,
@@ -34,16 +33,16 @@
     // ── Clock ────────────────────────────────────────────────────────
     "clock": {
         "tooltip-format": "{:%a, %d %b %Y}\n{calendar}",
-        "format": "[ <span font='14'></span> {:%H:%M} ]"
+        "format": "[ {:%H:%M} ]"
     },
 
     // ── Network ──────────────────────────────────────────────────────
     "network": {
         "format-wifi": "{icon}",
-        "format-icons": ["[ <span font='14'>󰤯</span> ]", "[ <span font='14'>󰤟</span> ]", "[ <span font='14'>󰤢</span> ]", "[ <span font='14'>󰤥</span> ]", "[ <span font='14'>󰤨</span> ]"],
-        "format-ethernet": "[ <span font='14'>󰀂</span> ]",
-        "format-alt": "[ <span font='14'>󱛇</span> ]",
-        "format-disconnected": "[ <span font='14'>󰖪</span> ]",
+        "format-icons": ["[ 󰤯 ]", "[ 󰤟 ]", "[ 󰤢 ]", "[ 󰤥 ]", "[ 󰤨 ]"],
+        "format-ethernet": "[ 󰀂 ]",
+        "format-alt": "[ 󱛇 ]",
+        "format-disconnected": "[ 󰖪 ]",
         "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
         "tooltip-format-disconnected": "Disconnected",
@@ -54,10 +53,10 @@
     // ── Bluetooth ────────────────────────────────────────────────────
     "bluetooth": {
         "format": "{icon}",
-        "format-connected": "[ <span font='14'>󰂱</span> ]",
+        "format-connected": "[ 󰂱 ]",
         "format-icons": {
-            "enabled": "[ <span font='14'>󰂯</span> ]",
-            "disabled": "[ <span font='14'>󰂲</span> ]"
+            "enabled": "[ 󰂯 ]",
+            "disabled": "[ 󰂲 ]"
         },
         "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
         "tooltip-format": "Bluetooth is {status}",
@@ -84,7 +83,7 @@
 
     // ── Power ────────────────────────────────────────────────────────
     "custom/power": {
-        "format": "[ <span font='14'>󰤆</span> ]",
+        "format": "[ 󰤆 ]",
         "tooltip": true,
         "tooltip-format": "Power Menu",
         "on-click": "~/.config/waybar/scripts/powermenu.sh"
