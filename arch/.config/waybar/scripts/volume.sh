@@ -43,4 +43,4 @@ else
     tooltip="Audio: $vol_int%\nOutput: $sink"
 fi
 
-echo "{\"text\":\"<span foreground='$fg'>$icon $ascii_bar $vol_int%</span>\",\"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"<span foreground='$fg'>[ $icon $ascii_bar $vol_int% ]</span>\",\"tooltip\":\"$tooltip\"}"

@@ -53,4 +53,4 @@ fi
 
 tooltip="Battery: $capacity% ($status)"
 
-echo "{\"text\":\"<span foreground='$fg'>$icon $ascii_bar $capacity%</span>\",\"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"<span foreground='$fg'>[ $icon $ascii_bar $capacity% ]</span>\",\"tooltip\":\"$tooltip\"}"
