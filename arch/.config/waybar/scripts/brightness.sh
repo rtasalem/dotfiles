@@ -31,4 +31,4 @@ fi
 device=$(brightnessctl --machine-readable | awk -F, 'NR==1 {print $1}')
 tooltip="Brightness: $percent%\nDevice: $device"
 
-echo "{\"text\":\"<span foreground='$fg'>$icon [ $ascii_bar ] $percent%</span>\",\"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"<span foreground='$fg'><span font='14'>$icon</span> [ $ascii_bar ] $percent%</span>\",\"tooltip\":\"$tooltip\"}"
