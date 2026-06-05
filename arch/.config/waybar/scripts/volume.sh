@@ -22,11 +22,14 @@ else
     icon="󰕾"
 fi
 
-# ASCII bar (6 blocks max, no trailing empty blocks)
+# ASCII bar (always 6 blocks: filled █ + empty ░)
 filled=$((vol_int * 6 / 100))
 [ $filled -gt 6 ] && filled=6
 [ $filled -lt 0 ] && filled=0
-bar=$(printf '█%.0s' $(seq 1 $filled))
+empty=$((6 - filled))
+bar=""
+[ $filled -gt 0 ] && bar=$(printf '█%.0s' $(seq 1 $filled))
+[ $empty -gt 0 ] && bar="${bar}$(printf '░%.0s' $(seq 1 $empty))"
 ascii_bar="$bar"
 
 if [ "$is_muted" = true ] || [ "$vol_int" -lt 10 ]; then
@@ -43,4 +46,4 @@ else
     tooltip="Audio: $vol_int%\nOutput: $sink"
 fi
 
-echo "{\"text\":\"<span foreground='$fg'>[ $icon $ascii_bar $vol_int% ]</span>\",\"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"<span foreground='$fg'>$icon [ $ascii_bar ] $vol_int%</span>\",\"tooltip\":\"$tooltip\"}"

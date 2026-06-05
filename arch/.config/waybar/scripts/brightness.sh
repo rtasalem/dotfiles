@@ -8,11 +8,14 @@ brightness=$(brightnessctl get)
 max_brightness=$(brightnessctl max)
 percent=$((brightness * 100 / max_brightness))
 
-# Build ASCII bar (6 blocks max, no trailing empty blocks)
+# Build ASCII bar (always 6 blocks: filled █ + empty ░)
 filled=$((percent * 6 / 100))
 [ $filled -gt 6 ] && filled=6
 [ $filled -lt 0 ] && filled=0
-bar=$(printf '█%.0s' $(seq 1 $filled))
+empty=$((6 - filled))
+bar=""
+[ $filled -gt 0 ] && bar=$(printf '█%.0s' $(seq 1 $filled))
+[ $empty -gt 0 ] && bar="${bar}$(printf '░%.0s' $(seq 1 $empty))"
 ascii_bar="$bar"
 
 icon="󰛨"
@@ -28,4 +31,4 @@ fi
 device=$(brightnessctl --machine-readable | awk -F, 'NR==1 {print $1}')
 tooltip="Brightness: $percent%\nDevice: $device"
 
-echo "{\"text\":\"<span foreground='$fg'>[ $icon $ascii_bar $percent% ]</span>\",\"tooltip\":\"$tooltip\"}"
+echo "{\"text\":\"<span foreground='$fg'>$icon [ $ascii_bar ] $percent%</span>\",\"tooltip\":\"$tooltip\"}"
