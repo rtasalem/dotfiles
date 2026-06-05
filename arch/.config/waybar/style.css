@@ -33,7 +33,6 @@ window#waybar {
 
 /* === Default Module Container Styling ==================================== */
 
-#custom-microphone,
 #bluetooth,
 #custom-brightness,
 #custom-volume,
@@ -42,20 +41,12 @@ window#waybar {
 #network,
 #custom-vpn,
 #clock {
-    padding: 2px 4px;
-    margin: 2px 1px;
-    background-color: transparent;
-    border: none;
+    padding: 4px 10px;
+    margin: 4px 4px;
+    background-color: #292d35;
+    border: 2px solid #61afef;
+    border-radius: 2px;
     color: #9cdef2;
-}
-/* === Microphone ========================================================== */
-
-#custom-microphone.active {
-    color: #56b6c2;
-}
-
-#custom-microphone.muted {
-    color: #fab387;
 }
 
 
@@ -139,7 +130,6 @@ window#waybar {
 
 /* === Hover Effects ======================================================= */
 
-#custom-microphone:hover,
 #custom-volume:hover,
 #network:hover,
 #custom-vpn:hover,
@@ -148,8 +138,10 @@ window#waybar {
 #custom-battery:hover,
 #custom-brightness:hover,
 #clock:hover {
-    color: #fab387;
-    transition: color 0.15s ease-in-out;
+    background-color: #4c566a;
+    border: 2px solid #56b6c2;
+    color: #56b6c2;
+    transition: all 0.2s ease-in-out;
 }
 
 

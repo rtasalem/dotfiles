@@ -12,7 +12,6 @@
         "custom/power",
         "network",
         "bluetooth",
-        "custom/microphone",
         "custom/vpn"
     ],
 
@@ -62,15 +61,6 @@
         "tooltip-format": "Bluetooth is {status}",
         "tooltip-format-connected": "Bluetooth: {device_alias}",
         "interval": 5
-    },
-
-    // ── Microphone ───────────────────────────────────────────────────
-    "custom/microphone": {
-        "exec": "~/.config/waybar/scripts/mic.sh",
-        "return-type": "json",
-        "interval": 1,
-        "signal": 8,
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+8 waybar"
     },
 
     // ── VPN ──────────────────────────────────────────────────────────
