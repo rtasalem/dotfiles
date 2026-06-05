@@ -9,8 +9,8 @@ waybar * {
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
-    font-size: 11px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
 }
 
 #waybar {
@@ -62,7 +62,6 @@ window#waybar {
 
 #clock {
     font-weight: bold;
-    font-size: 12px;
     color: #fab387;
 }
 
@@ -85,7 +84,6 @@ window#waybar {
 
 #custom-vpn {
     font-weight: bold;
-    font-size: 12px;
 }
 
 
@@ -121,7 +119,6 @@ window#waybar {
     background-color: transparent;
     border: none;
     color: #56b6c2;
-    font-size: 11px;
     transition: color 0.15s ease-in-out;
 }
 
