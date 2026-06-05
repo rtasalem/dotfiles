@@ -22,9 +22,10 @@ else
     icon="󰕾"
 fi
 
-# ASCII bar (5 blocks wide)
-filled=$((vol_int / 20))
-empty=$((5 - filled))
+# ASCII bar (6 blocks wide)
+filled=$((vol_int * 6 / 100))
+[ $filled -gt 6 ] && filled=6
+empty=$((6 - filled))
 bar=$(printf '█%.0s' $(seq 1 $filled))
 pad=$(printf '░%.0s' $(seq 1 $empty))
 ascii_bar="[$bar$pad]"
