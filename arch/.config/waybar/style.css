@@ -9,8 +9,13 @@ waybar * {
     border: none;
     border-radius: 0;
     min-height: 0;
-    font-family: "JetBrainsMono Nerd Font Mono";
+    font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono NFM", monospace;
     font-size: 14px;
+    font-weight: normal;
+}
+
+* {
+    font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono NFM", monospace;
 }
 
 #waybar {
